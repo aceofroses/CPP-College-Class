@@ -44,12 +44,17 @@ int main()
         }
     }
 
+
     for(int i = 1; i < numbers.size(); i++)
     {
         if(numbers[i] < lowest)
         {
             lowest = numbers[i];
         }
+    }
+    for(int i = 0; i < numbers.size(); i++)
+    {
+        total += numbers[i];
     }
 
     // Find the average
@@ -65,11 +70,40 @@ int main()
 
 void findAverage(double &average, const vector<float> &numbers)
 {
-    float total = 0;
-    for (int i = 0; i < numbers.size(); i++)
+    if (numbers.size() <= 2) 
     {
-        total += numbers[i];
+        average = 0; // Avoid division by zero if there are not enough values.
+        return;
     }
-    average = total / numbers.size();
-    
+
+    float total = 0;
+    float highest = numbers[0], lowest = numbers[0];
+
+    // Find highest and lowest
+    for (float num : numbers) 
+    {
+        if (num > highest) highest = num;
+        if (num < lowest) lowest = num;
+    }
+
+    // Calculate total excluding highest and lowest
+    int count = 0;
+    for (float num : numbers) 
+    {
+        if (num != highest && num != lowest) 
+        {
+            total += num;
+            count++;
+        }
+    }
+
+    // Avoid division by zero
+    if (count > 0) 
+    {
+        average = total / count;
+    } 
+    else 
+    {
+        average = 0;
+    }
 }
