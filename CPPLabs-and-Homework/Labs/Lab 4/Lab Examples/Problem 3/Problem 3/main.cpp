@@ -12,7 +12,7 @@ int main()
     
     
     // For each row
-    for(int row=0; row<n;row++)
+    for(int row = 0; row < n;row++)
     {
         cout << n << ": ";
         for(int col = 0; col < n; col++)
