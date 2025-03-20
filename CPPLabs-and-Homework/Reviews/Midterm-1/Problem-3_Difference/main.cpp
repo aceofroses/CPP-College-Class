@@ -11,7 +11,6 @@ int differenceValue(int a, int b);
 int main()
 {
     srand(time(0));
-    rand(), rand(), rand();
     // Declare Variables, constants, indexes, etc
     int enterNum, maxIndex, minIndex;
 
