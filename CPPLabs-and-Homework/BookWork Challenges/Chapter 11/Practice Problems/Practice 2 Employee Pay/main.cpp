@@ -31,7 +31,7 @@ int main()
     cout << "Gross Pay: " << employee1.grossPay << endl << endl;
 
     // Calculate pay for employee2
-// Calculate pay for employee1
+   
     cout << "Name: " << employee2.name << "\n"
          << "Employee Number: " << employee2.empNum << "\n"
          << "Enter the hours worked by this employee: " << endl;
