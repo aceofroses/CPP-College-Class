@@ -15,15 +15,31 @@ struct Weather
 void getData(Weather year[]);
 int highestTemp(Weather year[], int &index);
 int lowestTemp(Weather year[], int &index);
-void findAverage(Weather year[], int &totalRain, int &fullAverage, float &sumAvg);
+void findAverage(Weather year[], int &totalRain, int &fullAverage, float &sumAvg, int &index);
 
 int main()
 {
-    
+    //USE THIS DATA ONLY FOR TESTS.
+    //THE DATA MUST BE INTRODUCED BY THE USER OR FROM FILE
+    /* Weather year[ 12 ] = {  200,  90, 60, 0.0,
+                            300,  95, 62, 0.0,
+                            200,  99, 65, 0.0,
+                            200, 101, 66, 0.0,
+                            400, 105, 67, 0.0,
+                            600, 108, 70, 0.0,
+                            700, 112, 72, 0.0,
+                            700, 111, 74, 0.0,
+                            400, 108, 72, 0.0,
+                            200, 104, 68, 0.0,
+                            200,  98, 66, 0.0,
+                            100,  92, 64, 0.0 };
+    */
+    //ifstream ifile;
     int highest, lowest, totalRain=0, fullAverage;
     float sumAvg=0;
     //ADD YOUR CODE FROM HERE
-    int highIndex, lowIndex;
+
+    int index, highIndex, lowIndex;
 
     // Declare structure array
     Weather year[ 12 ]; // 12 months in a year
@@ -32,14 +48,14 @@ int main()
     //Function calls for each requirement
     getData(year);
 
-    findAverage(year, totalRain, fullAverage, sumAvg);
+    findAverage(year, totalRain, fullAverage, sumAvg, index);
 
     highest = highestTemp(year, highIndex);
     lowest = lowestTemp(year, lowIndex);
     
 
     //Display a list of the values necessary
-    cout << "Total Rain: " << totalRain << "\n"
+    cout << "\nTotal Rain: " << totalRain << "\n"
          << "Highest Temp: " << highest << "(Month is " << highIndex + 1 << ")" <<"\n"
          << "Lowest Temp: " << lowest << "(Month is " << lowIndex + 1 << ")" << "\n"
          << "Average Rainfall: " << fullAverage << "\n"
@@ -71,9 +87,6 @@ void getData(Weather year[])
             cout << "Invalid temperature. Please re-enter high and low temp for month #" << i + 1 << ": ";
             cin >> year[i].hTemp >> year[i].lTemp;
         }  
-        //Calculates the average of the temperatures for each month and stores in the structure avg
-        year[i].avg = (year[i].hTemp + year[i].lTemp) / 2.0f;
-        cout << "Monthly Averages: " << year[i].avg << endl;
     }
 }
 
@@ -111,20 +124,23 @@ int lowestTemp(Weather year[], int &index)
 }
 
 //Averages monthly rainfall
-void findAverage(Weather year[], int &totalRain, int &fullAverage, float &sumAvg)
-
+void findAverage(Weather year[], int &totalRain, int &fullAverage, float &sumAvg, int &index)
 {
-    for(int i = 0; i < 12; i++)
+    cout << "Averages of the year:\n";
+    for (int i = 0; i < 12; i++)
     {
-        //Sum the total rainfall
+        index = i;
+
+        // Sum the total rainfall
         totalRain += year[i].rainfall;
 
-        //Average the temperatures
-        sumAvg += year[i].avg;
-    }
-    
-    //Average the total rainfall
-    fullAverage = totalRain / 12;
-   
-}
+         // Calculates the average of the temperatures for each month and stores in the structure avg
+         year[i].avg = (year[i].hTemp + year[i].lTemp) / 2.0f;
+         cout << "Monthly Average for month" << " " << index + 1 << ": "<< year[i].avg << "\n\n";
 
+         //Sums the avg of each months averages
+         sumAvg += year[i].avg;
+    }
+    // Average the total rainfall
+    fullAverage = totalRain / 12;
+}
