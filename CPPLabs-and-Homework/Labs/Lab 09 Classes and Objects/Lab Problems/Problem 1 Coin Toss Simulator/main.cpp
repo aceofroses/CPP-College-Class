@@ -33,3 +33,9 @@ int main()
 
     return 0;
 }
+
+void Coin::toss()
+{
+    int result = rand() % 2;
+    sideup = (result == 0) ? "heads" : "tails";
+}
