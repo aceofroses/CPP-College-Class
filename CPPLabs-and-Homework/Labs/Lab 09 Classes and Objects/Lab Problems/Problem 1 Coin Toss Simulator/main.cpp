@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    srand(static_cast<int>(time(0)));
+    srand((time(0)));
 
     Coin flipCoin;
 
