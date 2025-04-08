@@ -15,6 +15,7 @@ class Vector
         // Make a deep copy of the contrstructor
         Vector(const Vector& copy)
         {
+            // Copies the information of x and y into copy objects
             x = copy.x;
             y = copy.y;
         }
@@ -24,16 +25,20 @@ class Vector
             return Vector( x + overload.x, y + overload.y);
         }
 
+        // Overload the "=" opertator to assign one vector to another.
         Vector& operator=(const Vector& overload)
         {
+            //If statement to check if there is a self-assignment of an object
             if(this == &overload) 
             {
-                return *this;
+                return *this; // Does nothing and returns the object
             }
 
+            // Copy the information from x and y
             this->x = overload.x;
             this->y = overload.y;
 
+            // Returns the copied data
             return *this;
         }
 };
