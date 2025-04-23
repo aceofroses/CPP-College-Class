@@ -1,6 +1,7 @@
 //DO NOT MODIFY THIS SECTION
 #include <iostream>
 #include <fstream>
+#include <vector>
 using namespace std;
 const int SIZE=50;
 //prototypes (INSERT HERE IF YOU USE FUNCTIONS)
