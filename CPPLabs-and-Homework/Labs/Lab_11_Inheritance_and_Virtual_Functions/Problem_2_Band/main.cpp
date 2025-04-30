@@ -1,3 +1,4 @@
+//Template code for main, from the document
 #include <iostream>
 #include "Band.h"
 #include "Guitar.h"
