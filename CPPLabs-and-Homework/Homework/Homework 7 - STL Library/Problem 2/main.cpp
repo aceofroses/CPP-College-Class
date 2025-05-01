@@ -13,24 +13,34 @@ int main() { // Step 1: Initialize the employee map
     display_employees(employees);
 
     // Step 2: Add new employees: New employees can join the company, and their details should be added to the map.
+    cout << "-Map after adding Eve and Frank" << endl;
     employees.emplace("Eve", 52000);
     employees.emplace("Frank", 48000);
+    
+    display_employees(employees);
+
 
     // Step 3: Update employee salaries: Employee salaries can be updated in the map.
+    cout << "-Map after changing Alice's Salary." << endl;
     employees["Alice"] = 51000; 
+    display_employees(employees);
 
     // Step 4: Remove employees: Employees can leave the company, and their details should be removed from the map.
+    cout << "-Map after removing Charlie." << endl;
     employees.erase("Charlie");
+    display_employees(employees);
 
     // Step 5: Check if an employee exists: The system should be able to check if a specific employee is in the map
 
     //Using Charlie as the example since we removed them first
+    cout << "Checking Bob is in the Employee List." << endl;
     string nameCheck = "Bob";
     if (employees.find(nameCheck) != employees.end()) {
-        cout << "\n" << nameCheck << " exists with salary: $" << employees[nameCheck] << endl;
+        cout << "\n   " << nameCheck << " exists with salary: $" << employees[nameCheck] << "\n\n" << endl;
     } else {
-        cout << "\n" << nameCheck << " does not exist in the records.\n";
+        cout << "\n   " << nameCheck << " does not exist in the records.\n";
     }
+
 
     // Step6: Display all employees and their salaries: Display all employees and their salaries in ascending order of employee names.
 
@@ -53,7 +63,7 @@ int main() { // Step 1: Initialize the employee map
      //For loop that iterates through the map, checking the second value for the highest and lowest salary
     for(const auto& pair : employees)
      {
-        //Checks 
+        //Checks the highest and lowest values, then assigns the position of the maps iterator to the correct values
         if(pair.second > highestPay)
         {
             highestEmp = pair.first;
@@ -67,9 +77,11 @@ int main() { // Step 1: Initialize the employee map
         }
      }
 
+     
+
     //Display the results
-    cout << "Highest Paid Employee and Salary: " << highestEmp << ", " << highestPay << "\n"
-          << "Lowest Paid Employee and Salary: " << lowestEmp << ", " << lowestPay << endl;
+    cout << "Lowest Paid Employee and Salary: " << lowestEmp << ", " << lowestPay<< "\n"
+         << "Highest Paid Employee and Salary: " << highestEmp << ", " << highestPay << endl;
 
     
     return 0;
@@ -80,11 +92,9 @@ int main() { // Step 1: Initialize the employee map
 //Function declaration for display_employees
 void display_employees(const map<string, int>& employees)
 {
-
-    cout << "All Employees and Salaries: " << endl;
     //For loop that will iterate through all current employees
     for(const auto& pair : employees)
     {
-        cout << pair.first << ": $" << pair.second << endl << endl;
+        cout << "     " << pair.first << ": $" << pair.second << endl;
     }
 }
