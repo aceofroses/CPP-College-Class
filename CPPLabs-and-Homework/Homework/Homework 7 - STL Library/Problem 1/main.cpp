@@ -5,11 +5,13 @@ using namespace std;
 template<class T>
 T absolute(T value)
 {
-    //Checks for 
+    //Checks if value is negative, then returns the absolute value
     if(value < 0)
     {
         return -value;
+
     }else { 
+        //Then if it's positive, returns the positive/absolute value
         return value;
     }
 };
