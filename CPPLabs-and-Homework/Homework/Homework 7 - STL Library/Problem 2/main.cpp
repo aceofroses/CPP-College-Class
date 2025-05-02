@@ -19,6 +19,7 @@ int main() { // Step 1: Initialize the employee map
     
     display_employees(employees);
 
+    cout << endl;
 
     // Step 3: Update employee salaries: Employee salaries can be updated in the map.
     cout << "-Map after changing Alice's Salary." << endl;
@@ -30,26 +31,29 @@ int main() { // Step 1: Initialize the employee map
     employees.erase("Charlie");
     display_employees(employees);
 
+    cout << endl;
+
     // Step 5: Check if an employee exists: The system should be able to check if a specific employee is in the map
 
     //Using Charlie as the example since we removed them first
     cout << "Checking Bob is in the Employee List." << endl;
     string nameCheck = "Bob";
     if (employees.find(nameCheck) != employees.end()) {
-        cout << "\n   " << nameCheck << " exists with salary: $" << employees[nameCheck] << "\n\n" << endl;
+        cout << "   "<< nameCheck << " exists with salary: $" << employees[nameCheck] << "\n" << endl;
     } else {
-        cout << "\n   " << nameCheck << " does not exist in the records.\n";
+        cout << "   " << nameCheck << " does not exist in the records.\n";
     }
+
+    cout << endl;
 
 
     // Step6: Display all employees and their salaries: Display all employees and their salaries in ascending order of employee names.
-
-        //Function call to show employees, do not edit
+    cout << "Show all Employees after map edits." << endl;
     display_employees(employees);
 
-     // Step 7: Find the highest and lowest salary: Determine and display the employee with the highest and lowest salary.
+    // Step 7: Find the highest and lowest salary: Determine and display the employee with the highest and lowest salary.
 
-    //Variables for iterating through the map, setting pair as the iterator as the beginning of the map
+        //Variables for iterating through the map, setting pair as the iterator as the beginning of the map
     auto pair = employees.begin();
 
     //Use the iterator to point to the first map value
@@ -82,6 +86,11 @@ int main() { // Step 1: Initialize the employee map
     //Display the results
     cout << "Lowest Paid Employee and Salary: " << lowestEmp << ", " << lowestPay<< "\n"
          << "Highest Paid Employee and Salary: " << highestEmp << ", " << highestPay << endl;
+
+    
+         
+         
+    cout << endl;
 
     
     return 0;
